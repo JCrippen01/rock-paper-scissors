@@ -3,7 +3,7 @@
 
 const getUserChoice = (userInput) => {
     userInput = userInput.toLowerCase()
-    if (userInput === "rock" || userInput ==="paper" || userInput === "scissors") {
+    if (userInput === "rock" || userInput ==="paper" || userInput === "scissors" || userInput === "bomb") {
     return userInput;
     } else {
         console.log("Please enter: rock, paper, or scissors");
@@ -29,6 +29,9 @@ const determineWinner = (userChoice, computerChoice) => {
     if(userChoice === computerChoice) {
        return 'Game Tied, go again!';
     }
+    if (userChoice === "bomb") {
+        return "BOOOM!, You blew the competition to hell. You win!"
+    }    
     if(userChoice === "rock"){
         if(computerChoice === "paper") {
             return "No one understands how paper beats a rock, PC WINS!"
@@ -44,19 +47,18 @@ const determineWinner = (userChoice, computerChoice) => {
     } else if (userChoice === "scissors") {
          if (computerChoice === "rock") {
          return "Stop getting so smashed!!! Loser!"
-         } else { 
-             return "Yay! you a weeeeener"
+
+    } else { 
+         return "Yay! you a weeeeener"
          }
         }
-    }
+}
 
 //console.log (determineWinner("rock", "scissors"))
 
 const playGame = () => {
-    const userChoice = getUserChoice('rock');
-    //userChoice = userChoice.toUpperCase()
+    const userChoice = getUserChoice('bomb');
     const computerChoice = getComputerChoice();
-    //computerChoice = computerChoice.toUpperCase()
     console.log('You throw: ' +  userChoice);
     console.log('The computer threw: ' + computerChoice)
     console.log(determineWinner(userChoice,computerChoice))
