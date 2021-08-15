@@ -9,7 +9,7 @@ const getUserChoice = (userInput) => {
         console.log("Please enter: rock, paper, or scissors");
     }
 }
- console.log(getUserChoice('Paper'))
+//console.log(getUserChoice("rock"))
 
  const getComputerChoice = () => {
      randomNumber = Math.floor(Math.random()*3);
@@ -23,7 +23,7 @@ const getUserChoice = (userInput) => {
      console.log("I will have to think about this. This question will take some time, 7... million.... years....")
  }
  }
-console.log(getComputerChoice())
+//console.log(getComputerChoice())
 
 const determineWinner = (userChoice, computerChoice) => {
     if(userChoice === computerChoice) {
@@ -33,11 +33,11 @@ const determineWinner = (userChoice, computerChoice) => {
         if(computerChoice === "paper") {
             return "No one understands how paper beats a rock, PC WINS!"
         } else {
-            return 'Running with scissors is both dangerous and futile. ROCK SMASH! You WIN!!!';
+            return 'ROCK SMASH! You WIN!!!';
         }
     } else if (userChoice === "paper") {
             if (computerChoice === "scissors") {
-                return "You got cut so bad, you wish you nevah been cut! PC WINS!"
+                return "Running with scissors is both dangerous and futile! PC WINS!"
             } else { 
                 return "Covering up that rock again? You WIN...for now."
             }
@@ -50,6 +50,17 @@ const determineWinner = (userChoice, computerChoice) => {
         }
     }
 
-console.log (determineWinner("rock", "scissors"))
-   
+//console.log (determineWinner("rock", "scissors"))
+
+const playGame = () => {
+    const userChoice = getUserChoice('rock');
+    //userChoice = userChoice.toUpperCase()
+    const computerChoice = getComputerChoice();
+    //computerChoice = computerChoice.toUpperCase()
+    console.log('You throw: ' +  userChoice);
+    console.log('The computer threw: ' + computerChoice)
+    console.log(determineWinner(userChoice,computerChoice))
+}
+
+playGame()
     
